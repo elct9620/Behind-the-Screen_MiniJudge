@@ -1,9 +1,24 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: $bgColor;
   color: $fontColor;
 
   font-family: $fontFamily;
   font-size: $fontSize;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $titleColor;
+}
+
+#wrapper {
+  // TODO: Adjust to responsive mode
+  width: 800px;
+  margin: 0 auto;
 }
 
 #footer {

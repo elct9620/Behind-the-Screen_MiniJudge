@@ -1,5 +1,14 @@
 // Settings
 @import "settings";
 
+// Vendor
+@import "vendor/normalize";
+
 // Common
 @import "base";
+
+// Modules
+@import "modules/button";
+
+// Layouts
+@import "layouts/home";

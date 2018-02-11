@@ -1,0 +1,27 @@
+.btn {
+  display: inline-block;
+
+  padding: $fontSize/2 $fontSize;
+
+  border: 0;
+  outline: 0;
+
+  background-color: transparent;
+}
+
+.btn-primary {
+  color: $white;
+  background-color: $primaryColor;
+
+  &:hover {
+    background-color: darken($primaryColor, 5%);
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+  }
+}
+
+.btn-large {
+  font-size: $fontSize * 1.5;
+}
