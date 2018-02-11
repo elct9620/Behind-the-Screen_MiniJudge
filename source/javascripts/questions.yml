@@ -1,0 +1,60 @@
+init:
+  question: 我是問題
+  description: 我是問題的說明
+  answers:
+    - label: 到問題一
+      to: q1
+    - label: 到問題二
+      to: q2
+    - label: 到問題三
+      to: q3
+    - label: 到問題四
+      to: q4
+q1:
+  question: 我是問題一
+  description: 我是問題的說明
+  answers:
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+q2:
+  question: 我是問題二
+  description: 我是問題的說明
+  answers:
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+q3:
+  question: 我是問題三
+  description: 我是問題的說明
+  answers:
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+q4:
+  question: 我是問題四
+  description: 我是問題的說明
+  answers:
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1
+    - label: 到結果
+      result: r1

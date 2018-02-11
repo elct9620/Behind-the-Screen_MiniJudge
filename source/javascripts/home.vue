@@ -7,11 +7,9 @@
 
 <script>
 export default {
-  data: function() {
-    return {
-      gotoQuestion: function() {
-        // TODO: Show Questions Page
-      }
+  methods: {
+    gotoQuestion() {
+      this.$router.push('/question')
     }
   }
 }

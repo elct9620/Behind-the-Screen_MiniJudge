@@ -37,6 +37,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(yaml|yml)$/,
+        loader: ['json-loader', 'yaml-loader']
       }
     ]
   },
