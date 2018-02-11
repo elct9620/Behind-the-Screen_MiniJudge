@@ -6,7 +6,7 @@ import App from './app.vue';
 Vue.use(VueRouter);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    render: h => h(App)
+  new Vue({
+    render: h => h(App),
   }).$mount('#app');
 });
