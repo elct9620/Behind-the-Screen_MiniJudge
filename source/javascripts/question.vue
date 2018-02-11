@@ -39,7 +39,7 @@ export default {
         this.questionID = answer.to;
         return;
       }
-      // TODO: Show result page
+      this.$router.push('/result')
     }
   },
   watch: {
