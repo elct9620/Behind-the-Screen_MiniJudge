@@ -1,5 +1,5 @@
 <template>
   <div>
-    Hello World
+    螢幕判官
   </div>
 </template>

@@ -5,12 +5,15 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Use the title from a page's frontmatter if it has one -->
-    <title><%= current_page.data.title || "Middleman" %></title>
-    <%= stylesheet_link_tag "site" %>
+    <!-- TODO: Add metadata for SEO -->
+    <title><%= current_page.data.title || "迷你判官" %></title>
+    <%= stylesheet_link_tag "app" %>
     <%= javascript_include_tag webpack_js("main") %>
   </head>
   <body>
     <%= yield %>
+    <footer id="footer">
+        &copy; 2018 迷你判官 All rights reverse.
+    </footer>
   </body>
 </html>

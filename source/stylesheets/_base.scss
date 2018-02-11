@@ -1,0 +1,17 @@
+body {
+  background: $bgColor;
+  color: $fontColor;
+
+  font-family: $fontFamily;
+  font-size: $fontSize;
+}
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: $fontSize;
+  bottom: 1rem;
+  left: 0;
+
+  text-align: center;
+}
