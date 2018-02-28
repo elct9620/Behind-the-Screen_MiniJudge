@@ -1,6 +1,11 @@
 <template>
   <div id="wrapper">
-    <router-view></router-view>
+    <header id="header">
+      <h1>迷你判官</h1>
+    </header>
+    <div id="main">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 

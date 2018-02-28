@@ -1,6 +1,10 @@
 // Settings
 @import "settings";
 
+// Mixin
+@import "mixin/responsive";
+@import "mixin/retina";
+
 // Vendor
 @import "vendor/normalize";
 

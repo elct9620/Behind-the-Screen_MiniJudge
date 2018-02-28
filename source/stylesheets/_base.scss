@@ -4,8 +4,7 @@ html, body {
 }
 
 body {
-  background: $bgColor;
-  color: $fontColor;
+  background: $lightBlack;
 
   font-family: $fontFamily;
   font-size: $fontSize;
@@ -16,17 +15,61 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #wrapper {
-  // TODO: Adjust to responsive mode
-  width: 800px;
-  margin: 0 auto;
+  position: relative;
+  width: 80vw;
+  min-height: 80vw * 9/16;
+  margin: $fontSize * 2 auto 0;
+  margin: 2rem auto 0;
+  padding: $fontSize * 2;
+  padding: 2rem;
+
+  background-color: $bgColor;
+
+  &:after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0.1;
+
+    background-image: image-url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+
+    pointer-events: none;
+  }
+}
+
+#header {
+  text-align: center;
+
+  h1 {
+    display: inline-block;
+
+    width: 400px;
+    height: 100px;
+
+    background: image-url('logo.png') no-repeat;
+    background-size: contain;
+    @include retina {
+      background-image: image-url('logo@2x.png');
+    }
+
+    text-indent: 100%;
+    white-space: nowrap;
+
+    overflow: hidden;
+  }
 }
 
 #footer {
-  position: absolute;
-  right: 0;
-  bottom: $fontSize;
-  bottom: 1rem;
-  left: 0;
+  margin: $fontSize auto;
+  margin: 1rem auto;
 
+  color: $white;
   text-align: center;
 }
