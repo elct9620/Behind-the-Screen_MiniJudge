@@ -26,3 +26,32 @@
 .btn-large {
   font-size: $fontSize * 1.5;
 }
+
+.btn-hammer {
+  color: $primaryColor;
+
+  text-indent: 50px;
+
+  background-image: image-url('hammer.png');
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  @include retina {
+    background-image: image-url('hammer@2x.png');
+    background-size: contain;
+  }
+
+  &:hover {
+    background-color: transparent;
+    background-image: image-url('hammer-active.png');
+
+    @include retina {
+      background-image: image-url('hammer-active@2x.png');
+      background-size: contain;
+    }
+  }
+
+  &:active {
+    transform: none;
+  }
+}

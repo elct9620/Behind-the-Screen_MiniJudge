@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <button class="btn btn-primary btn-large" @click="gotoQuestion">開始測驗</button>
+    <button class="btn btn-primary btn-hammer btn-large" @click="gotoQuestion">開始測驗</button>
   </div>
 </template>
 
