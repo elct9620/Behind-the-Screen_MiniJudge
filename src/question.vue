@@ -1,13 +1,16 @@
 <template>
   <div id="question">
     <section>
-      <h1>{{ question }}</h1>
+      <h2>{{ question }}</h2>
       <p>{{ description }}</p>
       <div>
-        <button v-for="answer in answers" class="btn btn-primary" @click="goto(answer)">
+        <button v-for="answer in answers" v-bind:class="[buttonStyle, {'btn-active': currentAnswer == answer}]" @click="select(answer)">
           {{ answer.label }}
         </button>
       </div>
+      <p class="text-center">
+        <button class="btn btn-primary btn-hammer btn-large" @click="next">選擇</button>
+      </p>
     </section>
   </div>
 </template>
@@ -18,6 +21,7 @@ import questions from './questions.yml'
 export default {
   data: function() {
     return {
+      currentAnswer: null,
       questionID: 'init',
       currentQuestion: questions['init']
     }
@@ -31,15 +35,32 @@ export default {
     },
     answers() {
       return this.currentQuestion.answers;
+    },
+    buttonStyle() {
+      console.log(this)
+      return {
+        'btn': true,
+        'btn-primary': true,
+        'btn-fullwidth': true
+      }
     }
   },
   methods: {
-    goto(answer) {
-      if(answer.hasOwnProperty('to')) {
-        this.questionID = answer.to;
+    next() {
+      if(this.currentAnswer === null) {
         return;
       }
+
+      if(this.currentAnswer.hasOwnProperty('to')) {
+        this.questionID = this.currentAnswer.to;
+        this.currentAnswer = null;
+        return;
+      }
+
       this.$router.push('/result')
+    },
+    select(answer) {
+      this.currentAnswer = answer;
     }
   },
   watch: {

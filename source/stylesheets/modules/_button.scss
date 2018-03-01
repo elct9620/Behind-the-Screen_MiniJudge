@@ -55,3 +55,22 @@
     transform: none;
   }
 }
+
+.btn-fullwidth {
+  display: block;
+  width: 100%;
+
+  margin: $fontSize auto 0;
+
+  text-align: left;
+
+  border: 3px solid $primaryColor;
+
+  color: $primaryColor;
+  background: transparent;
+
+  &:hover, &:active, &.btn-active {
+    color: $white;
+    background: $primaryColor;
+  }
+}
