@@ -1,0 +1,7 @@
+.answer-enter-active, .answer-leave-active {
+  transition: 1s $ease-in-circ;
+}
+
+.answer-enter, .answer-leave {
+  transform: translateX(100%);
+}

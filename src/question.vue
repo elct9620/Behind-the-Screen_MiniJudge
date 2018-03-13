@@ -3,11 +3,11 @@
     <section>
       <h2>{{ question }}</h2>
       <p>{{ description }}</p>
-      <div>
-        <button v-for="answer in answers" v-bind:class="[buttonStyle, {'btn-active': currentAnswer == answer}]" @click="select(answer)">
+      <transition-group name="answer" tag="div">
+        <button v-for="(answer, index) in answers" v-bind:key="index" v-bind:class="[buttonStyle, {'btn-active': currentAnswer == answer}]" @click="select(answer)">
           {{ answer.label }}
         </button>
-      </div>
+      </transition-group>
       <p class="text-center">
         <button class="btn btn-primary btn-hammer btn-large" @click="next">選擇</button>
       </p>
@@ -37,7 +37,6 @@ export default {
       return this.currentQuestion.answers;
     },
     buttonStyle() {
-      console.log(this)
       return {
         'btn': true,
         'btn-primary': true,

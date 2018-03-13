@@ -69,6 +69,8 @@
   color: $primaryColor;
   background: transparent;
 
+  transition: 200ms $ease-out-quad;
+
   &:hover, &:active, &.btn-active {
     color: $white;
     background: $primaryColor;
