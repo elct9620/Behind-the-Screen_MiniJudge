@@ -3,9 +3,20 @@ html, body {
   padding: 0;
 }
 
+%virtual-layer {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 body {
   background: $lightBlack;
 
+  color: $titleColor;
   font-family: $fontFamily;
   font-size: $fontSize;
 }
@@ -16,31 +27,42 @@ h1, h2, h3, h4, h5, h6 {
 
 #wrapper {
   position: relative;
-  width: 80vw;
-  min-height: 80vw * 9/16;
-  margin: $fontSize * 2 auto 0;
-  margin: 2rem auto 0;
+  width: 100%;
+  min-height: 100vw * 9/16;
   padding: $fontSize * 2;
   padding: 2rem;
 
-  background-color: $bgColor;
+  box-sizing: border-box;
 
-  &:after {
-    content: '';
+  @include breakpoint(md) {
+    width: 80vw;
+    min-height: 80vw * 9/16;
 
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    margin: $fontSize * 2 auto 0;
+    margin: 2rem auto 0;
+  }
 
-    opacity: 0.1;
+  &:before {
+    @extend %virtual-layer;
+    z-index: -10;
 
-    background-image: image-url('bg.jpg');
-    background-size: cover;
-    background-position: center;
+
+    @include breakpoint(md) {
+      opacity: 0.1;
+
+      background-image: image-url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
 
     pointer-events: none;
+  }
+
+  &:after {
+    @extend %virtual-layer;
+    z-index: -100;
+
+    background-color: $bgColor;
   }
 }
 
@@ -50,8 +72,13 @@ h1, h2, h3, h4, h5, h6 {
   h1 {
     display: inline-block;
 
-    width: 400px;
-    height: 100px;
+    width: 200px;
+    height: 50px;
+
+    @include breakpoint(sm) {
+      width: 400px;
+      height: 100px;
+    }
 
     background: image-url('logo.png') no-repeat;
     background-size: contain;
@@ -75,8 +102,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .inner {
-  width: 600px;
-  margin: 0 auto;
+  width: 90%;
+
+  @include breakpoint(md) {
+    width: 600px;
+    margin: 0 auto;
+  }
 }
 
 .text-center {
