@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import questions from './questions.yml'
+import questions from './questions.yml';
 
 export default {
   data: function() {
