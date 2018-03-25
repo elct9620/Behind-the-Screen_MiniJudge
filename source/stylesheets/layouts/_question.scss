@@ -5,3 +5,9 @@
 .answer-enter, .answer-leave {
   transform: translateX(100%);
 }
+
+#question p {
+  font-size: $fontSize;
+  line-height: 1.5em;
+  letter-spacing: .15em;
+}
