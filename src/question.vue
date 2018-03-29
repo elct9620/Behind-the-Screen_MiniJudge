@@ -1,11 +1,16 @@
 <template>
   <div id="question">
     <section>
-      <h2>{{ question }}</h2>
-      <p>{{ description }}</p>
+      <h2>{{ currentQuestion.question }}</h2>
+      <p>{{ currentQuestion.description }}</p>
       <transition-group name="answer" tag="div">
-        <button v-for="(answer, index) in answers" v-bind:key="index" v-bind:class="[buttonStyle, {'btn-active': currentAnswer == answer}]" @click="select(answer)">
-          {{ answer.label }}
+        <button
+          v-for="(answer, index) in currentQuestion.answers"
+          v-bind:key="index"
+          class='btn btn-primary btn-fullwidth'
+          v-bind:class="{'btn-active': currentSelected === index}"
+          @click="select(index)">
+          {{ answer }}
         </button>
       </transition-group>
       <p class="text-center">
@@ -19,53 +24,53 @@
 import questions from './questions.yml';
 
 export default {
-  data: function() {
+  data() {
     return {
-      currentAnswer: null,
-      questionID: 'init',
-      currentQuestion: questions['init']
-    }
+      currentSelected: null,
+      questionSetID: null,
+      questionIndex: 0,
+      answers: [],
+    };
+  },
+  created() {
+    this.questionSetID =
+      Math.floor(questions.length * Math.random());
   },
   computed: {
-    question() {
-      return this.currentQuestion.question;
+    currentQuestion() {
+      return this.questionSet[this.questionIndex];
     },
-    description() {
-      return this.currentQuestion.description;
-    },
-    answers() {
-      return this.currentQuestion.answers;
+    questionSet() {
+      return questions[this.questionSetID];
     },
     buttonStyle() {
       return {
-        'btn': true,
+        btn: true,
         'btn-primary': true,
-        'btn-fullwidth': true
-      }
-    }
+        'btn-fullwidth': true,
+      };
+    },
   },
   methods: {
-    next() {
-      if(this.currentAnswer === null) {
-        return;
-      }
-
-      if(this.currentAnswer.hasOwnProperty('to')) {
-        this.questionID = this.currentAnswer.to;
-        this.currentAnswer = null;
-        return;
-      }
-
-      this.$router.push('/result')
+    select(index) {
+      this.currentSelected = index;
     },
-    select(answer) {
-      this.currentAnswer = answer;
-    }
+    next() {
+      if (this.currentSelected == null) {
+        return;
+      }
+
+      this.answers.push(this.currentSelected + 1);
+      this.currentSelected = null;
+      this.questionIndex += 1;
+
+      if (this.questionIndex >= this.questionSet.length) {
+        // TODO: To result page
+        this.$router.push(`/result/${this.questionSetID + 1}${this.answers.join('')}`);
+      }
+    },
   },
   watch: {
-    questionID(id) {
-      this.currentQuestion = questions[id];
-    }
-  }
-}
+  },
+};
 </script>
