@@ -1,4 +1,6 @@
 - name: 跟風鄉民
+  image: 6.jpg
+  description: 你似乎相當討厭特定族群。
   match:
   - 11111
   - 11121
@@ -56,6 +58,8 @@
   - 23112
   - 24112
 - name: 大聲公
+  image: 6.jpg
+  description: 你似乎相當討厭特定族群。
   match:
   - 11112
   - 11114
@@ -88,6 +92,7 @@
   - 23142
 - name: 血統判官
   image: 6.jpg
+  description: 你似乎相當討厭特定族群。
   match:
   - 11113
   - 11211
@@ -156,6 +161,8 @@
   - 24312
   - 24332
 - name: 實習判官
+  image: 6.jpg
+  description: 你似乎相當討厭特定族群。
   match:
   - 11132
   - 11222
@@ -197,6 +204,8 @@
   - 23432
   - 24333
 - name: 混亂中立
+  image: 6.jpg
+  description: 你似乎相當討厭特定族群。
   match:
   - 11133
   - 11134
@@ -335,6 +344,8 @@
   - 24323
   - 24331
 - name: 兔子玩偶
+  image: 6.jpg
+  description: 你似乎相當討厭特定族群。
   match:
   - 11144
   - 11244
@@ -450,6 +461,8 @@
   - 24443
   - 24444
 - name: 鍵盤柯南
+  image: 6.jpg
+  description: 你似乎相當討厭特定族群。
   match:
   - 11233
   - 12232
@@ -498,6 +511,8 @@
   - 23431
   - 23433
 - name: 民間執法隊
+  image: 6.jpg
+  description: 你似乎相當討厭特定族群。
   match:
   - 11312
   - 11322
