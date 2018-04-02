@@ -15,6 +15,10 @@
   </head>
   <body>
     <%= yield %>
+    <section id="store">
+      <%= link_to image_tag('apple.png'), 'https://itunes.apple.com/app/id1342129735', class: 'store' %>
+      <%= link_to image_tag('steam.png'), 'http://store.steampowered.com/app/821560/', class: 'store' %>
+    </section>
     <footer id="footer">
         &copy; 2018 迷你判官 All rights reverse.
     </footer>
