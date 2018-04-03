@@ -453,6 +453,11 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 2rem;
   text-align: center; }
 
+#home p {
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: .15em; }
+
 .answer-enter-active, .answer-leave-active {
   -webkit-transition: 1s cubic-bezier(0.6, 0.04, 0.98, 0.335);
   transition: 1s cubic-bezier(0.6, 0.04, 0.98, 0.335); }
