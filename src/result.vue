@@ -38,7 +38,7 @@ export default {
       let image = BASE_URL + this.image + `?fbrefresh=${(new Date).getTime()}`;
       FB.ui({
         method: 'share_open_graph',
-        action_type: 'og.shares',
+        action_type: 'og.likes',
         action_properties: JSON.stringify({
           object: {
             'og:url': BASE_URL,
