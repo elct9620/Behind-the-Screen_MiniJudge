@@ -1,6 +1,11 @@
 <template>
   <div id="result">
-    <img v-bind:src="image">
+    <p>
+      <img v-bind:src="image">
+    </p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-large"  @click="share">分享</button>
+    </div>
   </div>
 </template>
 
@@ -26,6 +31,26 @@ export default {
       }
       return {};
     },
+  },
+  methods: {
+    share() {
+      const BASE_URL = "https://bs.18light.cc"
+      let image = BASE_URL + this.image;
+      FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.shares',
+        action_properties: {
+          object : {
+            'og:url': BASE_URL,
+            'og:title': this.result.name,
+            'og:description': this.result.description,
+            'og:image:width': '1200',
+            'og:image:height': '630',
+            'og:image': image,
+          }
+        }
+      }, function(response){});
+    }
   },
 };
 </script>
