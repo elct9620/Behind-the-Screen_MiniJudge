@@ -2,7 +2,7 @@
   <div id="question">
     <section>
       <h2>{{ currentQuestion.question }}</h2>
-      <p>{{ currentQuestion.description }}</p>
+      <div v-html="currentQuestion.description"></div>
       <transition-group name="answer" tag="div">
         <button
           v-for="(answer, index) in currentQuestion.answers"
