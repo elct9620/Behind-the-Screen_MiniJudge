@@ -34,13 +34,13 @@ export default {
   },
   methods: {
     share() {
-      const BASE_URL = "https://bs.18light.cc"
-      let image = BASE_URL + this.image;
+      const BASE_URL = "http://bs.18light.cc"
+      let image = BASE_URL + this.image + `?fbrefresh=${(new Date).getTime()}`;
       FB.ui({
         method: 'share_open_graph',
         action_type: 'og.shares',
-        action_properties: {
-          object : {
+        action_properties: JSON.stringify({
+          object: {
             'og:url': BASE_URL,
             'og:title': this.result.name,
             'og:description': this.result.description,
@@ -48,7 +48,7 @@ export default {
             'og:image:height': '630',
             'og:image': image,
           }
-        }
+        }),
       }, function(response){});
     }
   },
