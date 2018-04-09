@@ -36,6 +36,15 @@ export default {
     this.questionSetID =
       Math.floor(questions.length * Math.random());
   },
+  mounted() {
+    this.$nextTick(() => {
+      document.documentElement.className = 'jf-loading';
+      if (_jf) { _jf.flush(); }
+    });
+  },
+  updated() {
+
+  },
   computed: {
     currentQuestion() {
       return this.questionSet[this.questionIndex];
@@ -63,6 +72,11 @@ export default {
       this.answers.push(this.currentSelected + 1);
       this.currentSelected = null;
       this.questionIndex += 1;
+
+      this.$nextTick(() => {
+        document.documentElement.className = 'jf-loading';
+        if (_jf) { _jf.flush(); }
+      });
 
       if (this.questionIndex >= this.questionSet.length) {
         // TODO: To result page

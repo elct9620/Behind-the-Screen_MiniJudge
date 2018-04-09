@@ -9,5 +9,8 @@
         "js": "never",
         "vue": "never"
       }]
+    },
+    "globals": {
+      "_jf": true
     }
 }

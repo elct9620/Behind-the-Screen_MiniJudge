@@ -1,12 +1,12 @@
 .jf-loading {
-  p, .btn {
+  #main {
     opacity: 0;
   }
 }
 
 .jf-active {
-  p, .btn {
+  #main {
     opacity: 1;
-    transition: 250ms ease-in;
+    transition: .5s ease-in;
   }
 }
