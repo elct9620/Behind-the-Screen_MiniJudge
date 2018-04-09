@@ -317,7 +317,7 @@ html, body {
 body {
   background: #232323;
   color: #AE3034;
-  font-family: "IPAmj明朝", "IPAmjMincho", "HanaMinA", serif;
+  font-family: hanamin, "HanaMinA", "IPAmj明朝", "IPAmjMincho", serif;
   font-size: 14px; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -447,6 +447,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .store img {
   width: 150px; }
+
+.jf-loading #main {
+  opacity: 0; }
+
+.jf-active #main {
+  opacity: 1;
+  -webkit-transition: .5s ease-in;
+  transition: .5s ease-in; }
 
 #home {
   padding-top: 28px;
