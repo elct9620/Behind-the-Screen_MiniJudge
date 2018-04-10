@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     share() {
-      const BASE_URL = "http://bs.18light.cc"
+      const BASE_URL = "https://bs.18light.cc"
       let image = BASE_URL + this.image + `?fbrefresh=${(new Date).getTime()}`;
       FB.ui({
         method: 'share_open_graph',
