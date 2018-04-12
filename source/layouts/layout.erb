@@ -20,11 +20,11 @@
   <body class="hanamin">
     <%= yield %>
     <section id="store">
-      <%= link_to image_tag('apple.png'), 'https://itunes.apple.com/app/id1342129735', class: 'store' %>
-      <%= link_to image_tag('steam.png'), 'http://store.steampowered.com/app/821560/', class: 'store' %>
+      <%= link_to image_tag('apple.png'), 'https://itunes.apple.com/app/id1342129735', class: 'store', target: '_blank' %>
+      <%= link_to image_tag('steam.png'), 'http://store.steampowered.com/app/821560/', class: 'store', target: '_blank' %>
     </section>
     <footer id="footer">
-      迷你判官 &copy; 2018 18Light Game Ltd.
+      迷你判官 &copy; 2018 <%= link_to '18Light Game Ltd.', 'https://18light.cc', target: '_blank' %>
     </footer>
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>

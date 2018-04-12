@@ -4,6 +4,7 @@
       <img v-bind:src="image">
     </p>
     <div class="text-center">
+      <a class="btn btn-primary btn-large" href="https://18light.cc/bs.html" target="_blank">螢幕判官</a>
       <button class="btn btn-primary btn-large"  @click="share">分享</button>
     </div>
   </div>
