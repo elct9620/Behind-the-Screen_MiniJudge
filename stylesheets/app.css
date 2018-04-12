@@ -374,6 +374,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1rem auto;
   color: #FFFFFF;
   text-align: center; }
+  #footer a {
+    color: #FFFFFF; }
 
 .inner {
   width: 90%;
@@ -391,7 +393,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 14px;
   border: 0;
   outline: 0;
-  background-color: transparent; }
+  background-color: transparent;
+  text-decoration: none; }
 
 .btn-primary {
   color: #FFFFFF;
