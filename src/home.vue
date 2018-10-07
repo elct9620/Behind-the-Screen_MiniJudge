@@ -20,8 +20,8 @@ export default {
   },
   methods: {
     gotoQuestion() {
-      this.$router.push('/question')
-    }
-  }
-}
+      this.$router.push('/question');
+    },
+  },
+};
 </script>

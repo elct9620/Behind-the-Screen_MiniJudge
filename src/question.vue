@@ -2,16 +2,15 @@
   <div id="question">
     <section>
       <h2>{{ currentQuestion.question }}</h2>
-      <div v-html="currentQuestion.description"></div>
+      <description :paragraphs="currentQuestion.description" />
       <transition-group name="answer" tag="div">
-        <button
+        <answer
           v-for="(answer, index) in currentQuestion.answers"
-          v-bind:key="index"
-          class='btn btn-primary btn-fullwidth'
-          v-bind:class="{'btn-active': currentSelected === index}"
-          @click="select(index)">
-          {{ answer }}
-        </button>
+          :key="index"
+          :text="answer.text"
+          :class="{'btn-active': currentSelected === index}"
+          @click.native="select(index)"
+        />
       </transition-group>
       <p class="text-center">
         <button class="btn btn-primary btn-hammer btn-large" @click="next">選擇</button>
@@ -23,18 +22,25 @@
 <script>
 import questions from './questions.yml';
 
+import Description from './question/description.vue';
+import Answer from './question/answer.vue';
+
+import Bus from './store';
+
 export default {
   data() {
     return {
+      currentQuestionID: null,
       currentSelected: null,
-      questionSetID: null,
-      questionIndex: 0,
-      answers: [],
+      answeredIDs: [],
     };
   },
+  components: {
+    description: Description,
+    answer: Answer,
+  },
   created() {
-    this.questionSetID =
-      Math.floor(questions.length * Math.random());
+    this.currentQuestionID = this.findNextQuestion();
   },
   mounted() {
     this.$nextTick(() => {
@@ -43,45 +49,40 @@ export default {
     });
   },
   updated() {
-
   },
   computed: {
     currentQuestion() {
-      return this.questionSet[this.questionIndex];
+      return questions[this.currentQuestionID];
     },
-    questionSet() {
-      return questions[this.questionSetID];
-    },
-    buttonStyle() {
-      return {
-        btn: true,
-        'btn-primary': true,
-        'btn-fullwidth': true,
-      };
+    currentAnswer() {
+      return this.currentQuestion.answers[this.currentSelected];
     },
   },
   methods: {
-    select(index) {
-      this.currentSelected = index;
-    },
     next() {
-      if (this.currentSelected == null) {
+      if (!this.currentAnswer) {
         return;
       }
 
-      this.answers.push(this.currentSelected + 1);
-      this.currentSelected = null;
-      this.questionIndex += 1;
+      this.answeredIDs.push(this.currentQuestionID);
+      Bus.$emit('UpdateScore', this.currentAnswer);
 
-      this.$nextTick(() => {
-        document.documentElement.className = 'jf-loading';
-        if (_jf) { _jf.flush(); }
-      });
-
-      if (this.questionIndex >= this.questionSet.length) {
-        // TODO: To result page
-        this.$router.push(`/result/${this.questionSetID + 1}${this.answers.join('')}`);
+      if (this.answeredIDs.length >= 4) {
+        this.$router.push('/result');
+      } else {
+        this.currentQuestionID = this.findNextQuestion();
+        this.currentSelected = null;
       }
+    },
+    select(index) {
+      this.currentSelected = index;
+    },
+    findNextQuestion() {
+      const nextID = Math.floor(questions.length * Math.random());
+      if (this.answeredIDs.indexOf(nextID) === -1) {
+        return nextID;
+      }
+      return this.findNextQuestion();
     },
   },
   watch: {
