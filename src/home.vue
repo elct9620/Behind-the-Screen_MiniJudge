@@ -11,12 +11,15 @@
 </template>
 
 <script>
+import { resetScore } from './store';
+
 export default {
   mounted() {
     this.$nextTick(() => {
       document.documentElement.className = 'jf-loading';
       if (_jf) { _jf.flush(); }
     });
+    resetScore();
   },
   methods: {
     gotoQuestion() {

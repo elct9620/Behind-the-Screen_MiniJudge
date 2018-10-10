@@ -12,26 +12,23 @@
 </template>
 
 <script>
-import results from './result.yml';
+import { getResult, getScore } from './store';
 
 export default {
   data() {
-    return {};
+    return {
+      result: getResult(),
+      score: getScore(),
+    };
+  },
+  created() {
+    if (this.score.trust == 0 && this.score.action == 0 && this.score.empathy == 0) {
+      this.$router.push('/');
+    }
   },
   computed: {
     image() {
       return `/images/result/${this.result.image}`;
-    },
-    result() {
-      const ID = parseInt(this.$route.params.resultID, 10);
-      let i;
-
-      for (i = 0; i < results.length; i += 1) {
-        if (results[i].match.includes(ID)) {
-          return results[i];
-        }
-      }
-      return {};
     },
   },
   methods: {

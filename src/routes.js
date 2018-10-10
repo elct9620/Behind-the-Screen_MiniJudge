@@ -7,7 +7,7 @@ import Result from './result.vue';
 const routes = [
   { path: '/', component: Home },
   { path: '/question', component: Question },
-  { path: '/result/:resultID', component: Result },
+  { path: '/result', component: Result },
 ];
 
 export default new VueRouter({ routes });
