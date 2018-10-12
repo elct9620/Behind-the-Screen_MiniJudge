@@ -48,8 +48,6 @@ export default {
       if (_jf) { _jf.flush(); }
     });
   },
-  updated() {
-  },
   computed: {
     currentQuestion() {
       return questions[this.currentQuestionID];
@@ -72,6 +70,11 @@ export default {
       } else {
         this.currentQuestionID = this.findNextQuestion();
         this.currentSelected = null;
+
+        this.$nextTick(() => {
+          document.documentElement.className = 'jf-loading';
+          if (_jf) { _jf.flush(); }
+        });
       }
     },
     select(index) {

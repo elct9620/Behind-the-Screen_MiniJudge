@@ -15,8 +15,8 @@ bus.$on('UpdateScore', (score) => {
   PlayerScore.empathy += score.empathy;
 });
 
-const minBound = (value, compare) => (compare.min === -1 ? true : value <= compare.min);
-const maxBound = (value, compare) => (compare.max === -1 ? true : value >= compare.max);
+const minBound = (value, compare) => (compare.min === -1 ? true : value >= compare.min);
+const maxBound = (value, compare) => (compare.max === -1 ? true : value <= compare.max);
 const scoreBound = (type, score, base) =>
   minBound(score[type], base[type]) && maxBound(score[type], base[type]);
 

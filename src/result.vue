@@ -26,6 +26,12 @@ export default {
       this.$router.push('/');
     }
   },
+  mounted() {
+    this.$nextTick(() => {
+      document.documentElement.className = 'jf-loading';
+      if (_jf) { _jf.flush(); }
+    });
+  },
   computed: {
     image() {
       return `/images/result/${this.result.image}`;
