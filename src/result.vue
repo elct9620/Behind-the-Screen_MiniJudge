@@ -3,6 +3,7 @@
     <p>
       <img v-bind:src="image">
     </p>
+    <p> {{ this.result.description.full }} </p>
     <div class="text-center">
       <button class="btn btn-primary btn-large"  @click="restart">重新開始</button>
       <a class="btn btn-primary btn-large" href="https://18light.cc/bs.html" target="_blank">螢幕判官</a>
