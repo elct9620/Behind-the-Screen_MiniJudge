@@ -49,7 +49,7 @@ export default {
           object: {
             'og:url': BASE_URL,
             'og:title': this.result.name,
-            'og:description': this.result.description,
+            'og:description': this.result.description.short,
             'og:image:width': '1200',
             'og:image:height': '630',
             'og:image': image,
