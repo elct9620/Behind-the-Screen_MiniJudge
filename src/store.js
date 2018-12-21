@@ -32,5 +32,3 @@ export const resetScore = () => {
   PlayerScore.empathy = 0;
 };
 
-window.getResult = () => results.filter(characterFilter(PlayerScore));
-window.scoreBound = scoreBound;

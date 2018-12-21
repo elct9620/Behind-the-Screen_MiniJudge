@@ -21,7 +21,7 @@
   score:
     trust:
       min: 11
-      max: 16
+      max: 18
     action:
       min: -1
       max: 15
@@ -35,14 +35,14 @@
   image: 3.jpg
   score:
     trust:
-      min: -1
+      min: 11
       max: -1
     action:
       min: -1
-      max: 10
+      max: 16
     empathy:
       min: 11
-      max: 21
+      max: 22
 - name: 善心人士
   description:
     short: 勇於為弱勢發聲，致力改善所有社會不公!
@@ -56,7 +56,7 @@
       min: 16
       max: -1
     empathy:
-      min: 22
+      min: 23
       max: -1
 - name: 天之驕子
   description:
@@ -80,13 +80,13 @@
   image: 6.jpg
   score:
     trust:
-      min: 17
+      min: 19
       max: -1
     action:
       min: -1
       max: 15
     empathy:
-      min: 22
+      min: 23
       max: -1
 - name: 一般民眾
   description:
@@ -111,13 +111,13 @@
   score:
     trust:
       min: 11
-      max: 16
+      max: 18
     action:
       min: 16
       max: -1
     empathy:
       min: 11
-      max: 21
+      max: 22
 - name: 八卦版鄉民
   description:
     short: 什麼?兇殺案?!先上 ptt 看看大家怎麼說!
@@ -125,14 +125,14 @@
   image: 9.jpg
   score:
     trust:
-      min: 17
+      min: 19
       max: -1
     action:
       min: 16
       max: -1
     empathy:
       min: 11
-      max: 21
+      max: 22
 - name: 資深媒體人
   description:
     short: 管他什麼真相，觀眾只是受到我操控的棋子而已。
