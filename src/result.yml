@@ -35,7 +35,7 @@
   image: 3.jpg
   score:
     trust:
-      min: 11
+      min: -1
       max: -1
     action:
       min: -1
